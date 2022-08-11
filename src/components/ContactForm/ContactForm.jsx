@@ -1,7 +1,7 @@
 import { nanoid } from 'nanoid';
 import styles from './ContactForm.module.css';
 import { useState } from 'react';
-import { addUser } from 'redux/contacts/contact-actions';
+import { fetchAddContact } from 'redux/contacts/contacts-operations';
 import { useDispatch, useSelector } from 'react-redux';
 
 export function ContactForm() {
@@ -36,7 +36,7 @@ export function ContactForm() {
     if (oldContact) {
       return alert(`${name} is already in contact`);
     }
-    dispatch(addUser(contact));
+    dispatch(fetchAddContact(contact));
     setName('');
     setPhone('');
   };
